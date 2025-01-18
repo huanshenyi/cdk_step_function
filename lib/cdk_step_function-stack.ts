@@ -18,6 +18,9 @@ export class CdkStepFunctionStack extends cdk.Stack {
         entry: path.join(__dirname, "..", "lambda", "users-function.ts"),
         handler: "handler",
         timeout: cdk.Duration.seconds(10),
+        bundling: {
+          externalModules: ["@aws-sdk/*"],
+        },
       }
     );
 
@@ -29,6 +32,9 @@ export class CdkStepFunctionStack extends cdk.Stack {
         entry: path.join(__dirname, "..", "lambda", "output-function.ts"),
         handler: "handler",
         timeout: cdk.Duration.seconds(10),
+        bundling: {
+          externalModules: ["@aws-sdk/*"],
+        },
       }
     );
 
